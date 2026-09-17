@@ -1,0 +1,2712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Brewora - Premium coffee beans, blends and brewing essentials.">
+
+    <title>Brewora | Premium Coffee</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #24150d;
+            background: #fffdf9;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 82px;
+            background: #24150d;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            border: 1px solid #c8944b;
+            color: #c8944b;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        .logo-text h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            line-height: 1;
+        }
+
+        .logo-text span {
+            font-size: 8px;
+            color: #bdb2aa;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #e8e1dc;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #d19b54;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 19px;
+        }
+
+        .nav-icon {
+            color: white;
+            background: transparent;
+            border: 0;
+            font-size: 17px;
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            color: #d19b54;
+        }
+
+        .cart-button span {
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            background: #d19b54;
+            color: #24150d;
+            font-size: 9px;
+            border-radius: 50%;
+            top: -9px;
+            right: -10px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        .mobile-menu {
+            display: none;
+            border: 0;
+            background: none;
+            color: white;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-box {
+            position: fixed;
+            top: 82px;
+            left: 0;
+            width: 100%;
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 10px 30px #00000012;
+            z-index: 999;
+            transform: translateY(-150%);
+            transition: .3s;
+        }
+
+        .search-box.active {
+            transform: translateY(0);
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #ddd;
+            padding: 13px 18px;
+        }
+
+        .search-wrapper input {
+            flex: 1;
+            border: 0;
+            outline: 0;
+            font-size: 14px;
+        }
+
+        .search-wrapper button {
+            border: 0;
+            background: transparent;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background: #24150d;
+            color: white;
+        }
+
+        .hero-container {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            width: 50%;
+            padding: 70px 0;
+        }
+
+        .section-label {
+            color: #d19b54;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .section-label.dark {
+            color: #986733;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 6vw, 76px);
+            line-height: 1;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            color: #d4cbc5;
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            border: 0;
+            padding: 14px 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: #c9944f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ae7839;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid #806c5d;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            border-color: #c9944f;
+            color: #d19b54;
+        }
+
+        .hero-rating {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 35px;
+        }
+
+        .rating-stars {
+            color: #d49a46;
+            letter-spacing: 2px;
+        }
+
+        .hero-rating strong {
+            font-size: 13px;
+            display: block;
+        }
+
+        .hero-rating span {
+            display: block;
+            color: #958a83;
+            font-size: 10px;
+        }
+
+        .hero-image {
+            width: 50%;
+            min-height: 570px;
+            background:
+                linear-gradient(
+                    90deg,
+                    #24150d 0%,
+                    transparent 20%
+                ),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1300&q=85")
+                center / cover;
+            position: relative;
+        }
+
+        .hero-badge {
+            position: absolute;
+            right: 40px;
+            bottom: 50px;
+            width: 100px;
+            height: 100px;
+            background: #c9944f;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(-10deg);
+        }
+
+        .hero-badge strong {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+        }
+
+        .hero-badge span {
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           BENEFITS
+        ========================= */
+
+        .benefits {
+            border-bottom: 1px solid #eee;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .benefit {
+            padding: 30px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-right: 1px solid #eee;
+        }
+
+        .benefit:last-child {
+            border-right: 0;
+        }
+
+        .benefit-icon {
+            color: #976534;
+            font-size: 21px;
+        }
+
+        .benefit h4 {
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .benefit p {
+            color: #999;
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 35px;
+        }
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 40px;
+            margin: 8px 0;
+        }
+
+        .section-header p {
+            color: #8d8d8d;
+            font-size: 13px;
+        }
+
+        .view-all {
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .view-all i {
+            margin-left: 5px;
+        }
+
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .category-card {
+            height: 290px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .category-image {
+            position: absolute;
+            inset: 0;
+            background-position: center;
+            background-size: cover;
+            transition: .5s;
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.07);
+        }
+
+        .category-1 {
+            background-image: url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .category-2 {
+            background-image: url("https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .category-3 {
+            background-image: url("https://images.unsplash.com/photo-1592663527359-cf6642f54cff?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .category-4 {
+            background-image: url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=700&q=80");
+        }
+
+        .category-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent 35%,
+                rgba(20, 10, 5, .85)
+            );
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-weight: 700;
+        }
+
+        .category-content i {
+            color: #d29b52;
+        }
+
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 7px;
+            overflow: hidden;
+            transition: .3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px #24150d12;
+        }
+
+        .product-image {
+            height: 270px;
+            background: #f2e9de center / cover;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: #24150d;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 3px;
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+
+        .product-wishlist {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: white;
+            border: 0;
+            color: #555;
+        }
+
+        .product-wishlist.active {
+            color: #b84b3f;
+        }
+
+        .product-info {
+            padding: 18px;
+        }
+
+        .product-info h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .product-category {
+            color: #999;
+            font-size: 10px;
+        }
+
+        .product-rating {
+            color: #d39a45;
+            font-size: 11px;
+            margin: 10px 0;
+        }
+
+        .product-rating span {
+            color: #999;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .add-cart {
+            border: 0;
+            background: #6b3d20;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .add-cart:hover {
+            background: #24150d;
+        }
+
+
+        /* =========================
+           PROMO
+        ========================= */
+
+        .promo {
+            margin: 0 0 90px;
+            background: #24150d;
+            color: white;
+        }
+
+        .promo-container {
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    #24150d 30%,
+                    transparent
+                ),
+                url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1400&q=85")
+                right center / cover;
+        }
+
+        .promo-content {
+            max-width: 500px;
+            padding: 60px 0;
+        }
+
+        .promo h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            line-height: 1.1;
+            margin: 15px 0;
+        }
+
+        .promo p {
+            color: #cfc5bd;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: #f7f1ea;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 7px;
+        }
+
+        .stat-icon {
+            color: #a16d38;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .stat-card strong {
+            font-family: "Playfair Display", serif;
+            display: block;
+            font-size: 30px;
+        }
+
+        .stat-card span {
+            color: #888;
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #f5eee6;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 520px;
+            background:
+                url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85")
+                center / cover;
+            position: relative;
+        }
+
+        .about-small-image {
+            position: absolute;
+            width: 190px;
+            height: 220px;
+            bottom: -35px;
+            right: -35px;
+            background:
+                url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=500&q=85")
+                center / cover;
+            border: 8px solid #f5eee6;
+        }
+
+        .about-content h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            line-height: 1.1;
+            margin: 12px 0 20px;
+        }
+
+        .about-content p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .btn-dark {
+            background: #24150d;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: #6b3d20;
+        }
+
+
+        /* =========================
+           TESTIMONIALS
+        ========================= */
+
+        .centered {
+            display: block;
+            text-align: center;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review {
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .review-stars {
+            color: #d39a45;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .review > p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e8d5bf;
+            display: grid;
+            place-items: center;
+            color: #754721;
+            font-weight: 700;
+        }
+
+        .review-user strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .review-user span {
+            color: #999;
+            font-size: 10px;
+        }
+
+
+        /* =========================
+           BLOG
+        ========================= */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .blog-card {
+            border: 1px solid #eee;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
+        .blog-image {
+            height: 210px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .blog-1 {
+            background-image: url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .blog-2 {
+            background-image: url("https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .blog-3 {
+            background-image: url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .blog-content {
+            padding: 22px;
+        }
+
+        .blog-content > span {
+            color: #999;
+            font-size: 10px;
+        }
+
+        .blog-content h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 21px;
+            margin: 10px 0;
+        }
+
+        .blog-content p {
+            color: #777;
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .blog-content a {
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           NEWSLETTER
+        ========================= */
+
+        .newsletter {
+            background: #f0e4d5;
+        }
+
+        .newsletter-container {
+            min-height: 270px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .newsletter h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 38px;
+            margin: 10px 0;
+        }
+
+        .newsletter p {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .newsletter form {
+            display: flex;
+        }
+
+        .newsletter input {
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            outline: none;
+        }
+
+        .newsletter .btn {
+            border-radius: 0;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #24150d;
+            color: white;
+            padding: 65px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-brand > p {
+            color: #a99d95;
+            font-size: 12px;
+            margin: 18px 0;
+        }
+
+        .footer-column h4 {
+            color: #d19b54;
+            font-size: 13px;
+            margin-bottom: 17px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #a99d95;
+            font-size: 11px;
+            margin-bottom: 11px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover {
+            color: #fff;
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+        }
+
+        .socials a {
+            width: 35px;
+            height: 35px;
+            display: grid;
+            place-items: center;
+            border: 1px solid #4a3930;
+            border-radius: 50%;
+            color: #c2b4aa;
+        }
+
+        .socials a:hover {
+            color: #d19b54;
+            border-color: #d19b54;
+        }
+
+        .footer-bottom {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #40332c;
+            display: flex;
+            justify-content: space-between;
+            color: #81756e;
+            font-size: 10px;
+        }
+
+        .footer-bottom div {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .footer-bottom i {
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .category-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefit:nth-child(2) {
+                border-right: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-container {
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                height: 72px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #24150d;
+                padding: 22px 5%;
+                gap: 18px;
+                z-index: 999;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero-container {
+                min-height: auto;
+            }
+
+            .hero-content {
+                width: 100%;
+                padding: 80px 0;
+            }
+
+            .hero-image {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-header {
+                display: block;
+            }
+
+            .section-header .view-all {
+                display: inline-block;
+                margin-top: 15px;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .reviews-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-container {
+                display: block;
+                padding: 60px 0;
+            }
+
+            .newsletter form {
+                margin-top: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 520px) {
+
+            .container {
+                width: 90%;
+            }
+
+            .logo-text span {
+                display: none;
+            }
+
+            .nav-actions {
+                gap: 12px;
+            }
+
+            .benefits-grid,
+            .category-grid,
+            .products-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefit {
+                border-right: 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .benefit:last-child {
+                border-bottom: 0;
+            }
+
+            .hero h1 {
+                font-size: 46px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .promo-container {
+                background:
+                    linear-gradient(
+                        90deg,
+                        #24150d 10%,
+                        #24150ddd
+                    ),
+                    url("https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1000&q=80")
+                    center / cover;
+            }
+
+            .promo h2 {
+                font-size: 38px;
+            }
+
+            .newsletter form {
+                display: block;
+            }
+
+            .newsletter input,
+            .newsletter .btn {
+                width: 100%;
+            }
+
+            .newsletter .btn {
+                margin-top: 8px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                display: block;
+                line-height: 2;
+            }
+
+            .footer-bottom div {
+                margin-top: 10px;
+            }
+
+            .about-small-image {
+                right: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="main.html" class="logo">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-mug-hot"></i>
+                </div>
+
+                <div class="logo-text">
+                    <h2>Brewora</h2>
+                    <span>Good Coffee. Better Days.</span>
+                </div>
+
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="#home" class="active">Home</a>
+
+                <a href="#shop">Shop</a>
+
+                <a href="categories.html">Categories</a>
+
+                <a href="about.html">About</a>
+
+                <a href="#blog">Blog</a>
+
+                <a href="contact.html">Contact</a>
+
+                <a href="products.html">products</a>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <button class="nav-icon search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Account -->
+                <a href="login.html" class="nav-icon">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <!-- Cart -->
+                <a href="cart.html" class="nav-icon cart-button" aria-label="Shopping cart">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cartCount">0</span>
+
+                </a>
+
+                <button class="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SEARCH BOX ================= -->
+
+    <div class="search-box">
+
+        <div class="container">
+
+            <div class="search-wrapper">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search coffee, beans, blends...">
+
+                <button id="closeSearch">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <main>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero" id="home">
+
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <span class="section-label">
+                        PREMIUM COFFEE BEANS
+                    </span>
+
+                    <h1>
+                        Rich Flavor
+                        <br>
+                        In Every Cup
+                    </h1>
+
+                    <p>
+                        Discover carefully selected coffee beans
+                        roasted to perfection for an unforgettable
+                        coffee experience.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#shop" class="btn btn-primary">
+                            Shop Now
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="about.html" class="btn btn-outline">
+                            Our Story
+                        </a>
+
+                    </div>
+
+                    <div class="hero-rating">
+
+                        <div class="rating-stars">
+                            ★★★★★
+                        </div>
+
+                        <div>
+                            <strong>4.9/5</strong>
+                            <span>from 2,000+ customers</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-image">
+
+                    <div class="hero-badge">
+
+                        <strong>100%</strong>
+                        <span>Arabica</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BENEFITS ================= -->
+
+        <section class="benefits">
+
+            <div class="container benefits-grid">
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-truck-fast"></i>
+                    </div>
+
+                    <div>
+                        <h4>Free Shipping</h4>
+                        <p>Orders over $50</p>
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+
+                    <div>
+                        <h4>Premium Quality</h4>
+                        <p>Selected coffee beans</p>
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <div>
+                        <h4>Secure Payment</h4>
+                        <p>100% secure checkout</p>
+                    </div>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div>
+                        <h4>24/7 Support</h4>
+                        <p>We're here to help</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories section" id="categories">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label dark">
+                            SHOP BY CATEGORY
+                        </span>
+
+                        <h2>
+                            Find Your Perfect Coffee
+                        </h2>
+
+                        <p>
+                            Explore our carefully selected coffee collection.
+                        </p>
+
+                    </div>
+
+                    <a href="categories.html" class="view-all">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="category-grid">
+
+                    <a href="products.html?category=Coffee%20Beans" class="category-card">
+
+                        <div class="category-image category-1"></div>
+
+                        <div class="category-content">
+
+                            <span>Coffee Beans</span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="products.html?category=Ground%20Coffee" class="category-card">
+
+                        <div class="category-image category-2"></div>
+
+                        <div class="category-content">
+
+                            <span>Ground Coffee</span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="products.html?category=Espresso" class="category-card">
+
+                        <div class="category-image category-3"></div>
+
+                        <div class="category-content">
+
+                            <span>Espresso</span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </div>
+
+                    </a>
+
+
+                    <a href="products.html?category=Flavored%20Coffee" class="category-card">
+
+                        <div class="category-image category-4"></div>
+
+                        <div class="category-content">
+
+                            <span>Flavored Coffee</span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUCTS ================= -->
+
+        <section class="products-section section" id="shop">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label dark">
+                            OUR COLLECTION
+                        </span>
+
+                        <h2>
+                            Featured Products
+                        </h2>
+
+                        <p>
+                            Our most loved coffee products.
+                        </p>
+
+                    </div>
+
+                    <a href="products.html" class="view-all">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="products-grid" id="productsGrid">
+
+                    <!-- Products generated by JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROMO ================= -->
+
+        <section class="promo">
+
+            <div class="container promo-container">
+
+                <div class="promo-content">
+
+                    <span class="section-label">
+                        SPECIAL OFFER
+                    </span>
+
+                    <h2>
+                        Your Morning
+                        <br>
+                        Deserves Better Coffee.
+                    </h2>
+
+                    <p>
+                        Get 20% off your first order
+                        and discover your new favorite blend.
+                    </p>
+
+                    <a href="#shop" class="btn btn-primary">
+                        Shop Collection
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BEST SELLERS ================= -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label dark">
+                            BEST SELLERS
+                        </span>
+
+                        <h2>
+                            Loved By Coffee Lovers
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+
+                        <strong>50K+</strong>
+
+                        <span>Cups Enjoyed</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <strong>15K+</strong>
+
+                        <span>Happy Customers</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <strong>4.9/5</strong>
+
+                        <span>Average Rating</span>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+
+                        <strong>20+</strong>
+
+                        <span>Countries Served</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about section" id="about">
+
+            <div class="container about-container">
+
+                <div class="about-image">
+
+                    <div class="about-small-image"></div>
+
+                </div>
+
+                <div class="about-content">
+
+                    <span class="section-label dark">
+                        MORE THAN JUST COFFEE
+                    </span>
+
+                    <h2>
+                        Coffee With
+                        <br>
+                        A Purpose.
+                    </h2>
+
+                    <p>
+                        We believe great coffee starts with great beans.
+                        That's why we work with passionate farmers and
+                        carefully select every bean that goes into our
+                        collection.
+                    </p>
+
+                    <p>
+                        From the farm to your cup, we focus on quality,
+                        sustainability and creating a coffee experience
+                        worth remembering.
+                    </p>
+
+                    <a href="about.html" class="btn btn-dark">
+                        Discover Our Story
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TESTIMONIALS ================= -->
+
+        <section class="testimonials section">
+
+            <div class="container">
+
+                <div class="section-header centered">
+
+                    <span class="section-label dark">
+                        CUSTOMER REVIEWS
+                    </span>
+
+                    <h2>
+                        What Our Customers Say
+                    </h2>
+
+                    <p>
+                        Real opinions from real coffee lovers.
+                    </p>
+
+                </div>
+
+
+                <div class="reviews-grid">
+
+                    <article class="review">
+
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "The Arabica beans are incredible.
+                            The flavor is smooth and rich.
+                            Definitely my new favorite coffee."
+                        </p>
+
+                        <div class="review-user">
+
+                            <div class="avatar">
+                                A
+                            </div>
+
+                            <div>
+                                <strong>Alex Morgan</strong>
+                                <span>Verified Customer</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="review">
+
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "Beautiful packaging, fast delivery
+                            and amazing coffee. Everything feels
+                            premium from start to finish."
+                        </p>
+
+                        <div class="review-user">
+
+                            <div class="avatar">
+                                S
+                            </div>
+
+                            <div>
+                                <strong>Sarah Wilson</strong>
+                                <span>Verified Customer</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="review">
+
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            "I ordered the Dark Roast Blend and
+                            loved it. Strong without being bitter.
+                            Highly recommended."
+                        </p>
+
+                        <div class="review-user">
+
+                            <div class="avatar">
+                                M
+                            </div>
+
+                            <div>
+                                <strong>Michael Brown</strong>
+                                <span>Verified Customer</span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BLOG ================= -->
+
+        <section class="section blog-section" id="blog">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-label dark">
+                            FROM OUR BLOG
+                        </span>
+
+                        <h2>
+                            Coffee Stories
+                        </h2>
+
+                        <p>
+                            Tips, guides and stories from the coffee world.
+                        </p>
+
+                    </div>
+
+                    <a href="#" class="view-all">
+                        View All
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="blog-grid">
+
+                    <article class="blog-card">
+
+                        <div class="blog-image blog-1"></div>
+
+                        <div class="blog-content">
+
+                            <span>May 10, 2026</span>
+
+                            <h3>
+                                How Coffee Beans Are Grown
+                            </h3>
+
+                            <p>
+                                Discover the journey of coffee beans
+                                from farm to your favorite cup.
+                            </p>
+
+                            <a href="#">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <div class="blog-image blog-2"></div>
+
+                        <div class="blog-content">
+
+                            <span>May 05, 2026</span>
+
+                            <h3>
+                                Best Brewing Methods
+                            </h3>
+
+                            <p>
+                                Learn simple techniques to make
+                                better coffee at home.
+                            </p>
+
+                            <a href="#">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <div class="blog-image blog-3"></div>
+
+                        <div class="blog-content">
+
+                            <span>April 19, 2026</span>
+
+                            <h3>
+                                The History Of Coffee
+                            </h3>
+
+                            <p>
+                                A fascinating journey through the
+                                history of everyone's favorite drink.
+                            </p>
+
+                            <a href="#">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NEWSLETTER ================= -->
+
+        <section class="newsletter" id="contact">
+
+            <div class="container newsletter-container">
+
+                <div>
+
+                    <span class="section-label">
+                        STAY IN THE LOOP
+                    </span>
+
+                    <h2>
+                        Get Fresh Coffee News.
+                    </h2>
+
+                    <p>
+                        Subscribe to receive new products,
+                        special offers and coffee tips.
+                    </p>
+
+                </div>
+
+                <form id="newsletterForm">
+
+                    <input
+                        type="email"
+                        placeholder="Your email address"
+                        required>
+
+                    <button class="btn btn-primary">
+                        Subscribe
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="main.html" class="logo">
+
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-mug-hot"></i>
+                    </div>
+
+                    <div class="logo-text">
+                        <h2>Brewora</h2>
+                        <span>Good Coffee. Better Days.</span>
+                    </div>
+
+                </a>
+
+                <p>
+                    Premium coffee made for everyday moments.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-pinterest-p"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Shop</h4>
+
+                <a href="#shop">Coffee Beans</a>
+                <a href="#shop">Ground Coffee</a>
+                <a href="#shop">Espresso</a>
+                <a href="#shop">Accessories</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Company</h4>
+
+                <a href="about.html">About Us</a>
+                <a href="#">Our Story</a>
+                <a href="#blog">Blog</a>
+                <a href="#contact">Contact</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Support</h4>
+
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <p>
+                © 2026 Brewora. All rights reserved.
+            </p>
+
+            <div>
+                <span>Secure Payments</span>
+
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+                <i class="fa-brands fa-cc-paypal"></i>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* ==========================================
+           BREWORA ECOMMERCE
+        ========================================== */
+
+
+        /* ==========================================
+           PRODUCTS
+        ========================================== */
+
+        const products = [
+            {
+                id: 1,
+                name: "Arabica Coffee Beans",
+                category: "Coffee Beans",
+                price: 18,
+                rating: 4.9,
+                reviews: 124,
+                badge: "Best Seller",
+                image:
+                    "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 2,
+                name: "Dark Roast Blend",
+                category: "Coffee Beans",
+                price: 16,
+                rating: 4.8,
+                reviews: 98,
+                badge: "Popular",
+                image:
+                    "https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 3,
+                name: "Colombian Supremo",
+                category: "Coffee Beans",
+                price: 20,
+                rating: 5,
+                reviews: 76,
+                badge: "",
+                image:
+                    "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 4,
+                name: "Espresso Ground",
+                category: "Ground Coffee",
+                price: 14,
+                rating: 4.7,
+                reviews: 62,
+                badge: "",
+                image:
+                    "https://images.unsplash.com/photo-1592663527359-cf6642f54cff?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 5,
+                name: "House Blend",
+                category: "Coffee Beans",
+                price: 17,
+                rating: 4.8,
+                reviews: 83,
+                badge: "New",
+                image:
+                    "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 6,
+                name: "Vanilla Coffee",
+                category: "Flavored Coffee",
+                price: 19,
+                rating: 4.6,
+                reviews: 45,
+                badge: "",
+                image:
+                    "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 7,
+                name: "Ethiopian Roast",
+                category: "Coffee Beans",
+                price: 22,
+                rating: 4.9,
+                reviews: 91,
+                badge: "Premium",
+                image:
+                    "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=85"
+            },
+
+            {
+                id: 8,
+                name: "Morning Espresso",
+                category: "Espresso",
+                price: 15,
+                rating: 4.8,
+                reviews: 54,
+                badge: "",
+                image:
+                    "https://images.unsplash.com/photo-1510707577719-ae7c8e0b4e37?auto=format&fit=crop&w=800&q=85"
+            }
+        ];
+
+
+        /* ==========================================
+           CART
+        ========================================== */
+
+        let cart = JSON.parse(
+            localStorage.getItem("breworaCart")
+        ) || [];
+
+
+        /* ==========================================
+           DOM
+        ========================================== */
+
+        const productsGrid =
+            document.getElementById("productsGrid");
+
+        const cartCount =
+            document.getElementById("cartCount");
+
+
+        /* ==========================================
+           RENDER PRODUCTS
+        ========================================== */
+
+        function renderProducts(list = products) {
+
+            if (!productsGrid) {
+                return;
+            }
+
+            productsGrid.innerHTML = "";
+
+            if (list.length === 0) {
+
+                productsGrid.innerHTML = `
+                    <div style="
+                        grid-column:1/-1;
+                        text-align:center;
+                        padding:50px;
+                        color:#888;
+                    ">
+                        No products found.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            list.forEach(product => {
+
+                const card =
+                    document.createElement("article");
+
+                card.className = "product-card";
+
+                card.innerHTML = `
+
+                    <div
+                        class="product-image"
+                        style="
+                            background-image:url('${product.image}');
+                        "
+                    >
+
+                        ${
+                            product.badge
+                            ?
+                            `<span class="product-badge">
+                                ${product.badge}
+                            </span>`
+                            :
+                            ""
+                        }
+
+                        <button
+                            class="product-wishlist"
+                            data-id="${product.id}"
+                            aria-label="Add to wishlist"
+                        >
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="product-info">
+
+                        <span class="product-category">
+                            ${product.category}
+                        </span>
+
+                        <h3>
+                            ${product.name}
+                        </h3>
+
+                        <div class="product-rating">
+
+                            ${createStars(product.rating)}
+
+                            <span>
+                                (${product.reviews})
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-bottom">
+
+                            <strong class="product-price">
+                                $${product.price.toFixed(2)}
+                            </strong>
+
+                            <button
+                                class="add-cart"
+                                data-id="${product.id}"
+                            >
+                                Add to Cart
+                            </button>
+
+                        </div>
+
+                    </div>
+                `;
+
+
+                productsGrid.appendChild(card);
+            });
+
+
+            attachProductEvents();
+        }
+
+
+        /* ==========================================
+           STARS
+        ========================================== */
+
+        function createStars(rating) {
+
+            let stars = "";
+
+            for (let i = 1; i <= 5; i++) {
+
+                if (i <= Math.round(rating)) {
+
+                    stars += "★";
+
+                } else {
+
+                    stars += "☆";
+
+                }
+            }
+
+            return stars;
+        }
+
+
+        /* ==========================================
+           PRODUCT EVENTS
+        ========================================== */
+
+        function attachProductEvents() {
+
+            const addButtons =
+                document.querySelectorAll(".add-cart");
+
+            addButtons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    const id =
+                        Number(button.dataset.id);
+
+                    addToCart(id);
+
+                });
+
+            });
+
+
+            const wishlistButtons =
+                document.querySelectorAll(".product-wishlist");
+
+            wishlistButtons.forEach(button => {
+
+                button.addEventListener("click", () => {
+
+                    button.classList.toggle("active");
+
+                    const icon =
+                        button.querySelector("i");
+
+                    icon.classList.toggle(
+                        "fa-regular"
+                    );
+
+                    icon.classList.toggle(
+                        "fa-solid"
+                    );
+
+                });
+
+            });
+        }
+
+
+        /* ==========================================
+           ADD TO CART
+        ========================================== */
+
+        function addToCart(id) {
+
+            const product =
+                products.find(item => item.id === id);
+
+            if (!product) {
+                return;
+            }
+
+
+            const existing =
+                cart.find(item => item.id === id);
+
+
+            if (existing) {
+
+                existing.quantity += 1;
+
+            } else {
+
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+
+            }
+
+
+            saveCart();
+
+            updateCartUI();
+
+        }
+
+
+        /* ==========================================
+           SAVE CART
+        ========================================== */
+
+        function saveCart() {
+
+            localStorage.setItem(
+                "breworaCart",
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        /* ==========================================
+           CART COUNT
+        ========================================== */
+
+        function updateCartUI() {
+
+            if (!cartCount) {
+                return;
+            }
+
+            const count =
+                cart.reduce(
+                    (total, item) =>
+                        total + item.quantity,
+                    0
+                );
+
+            cartCount.textContent = count;
+        }
+
+
+        /* ==========================================
+           SEARCH
+        ========================================== */
+
+        const searchButton =
+            document.querySelector(".search-button");
+
+        const searchBox =
+            document.querySelector(".search-box");
+
+        const closeSearch =
+            document.getElementById("closeSearch");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+
+        if (searchButton) {
+
+            searchButton.addEventListener(
+                "click",
+                () => {
+
+                    searchBox.classList.toggle(
+                        "active"
+                    );
+
+                    if (
+                        searchBox.classList.contains(
+                            "active"
+                        )
+                    ) {
+
+                        searchInput.focus();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        if (closeSearch) {
+
+            closeSearch.addEventListener(
+                "click",
+                () => {
+
+                    searchBox.classList.remove(
+                        "active"
+                    );
+
+                    searchInput.value = "";
+
+                    renderProducts();
+
+                }
+            );
+
+        }
+
+
+        if (searchInput) {
+
+            searchInput.addEventListener(
+                "input",
+                () => {
+
+                    const query =
+                        searchInput.value
+                            .toLowerCase()
+                            .trim();
+
+
+                    const filtered =
+                        products.filter(product =>
+
+                            product.name
+                                .toLowerCase()
+                                .includes(query)
+
+                            ||
+
+                            product.category
+                                .toLowerCase()
+                                .includes(query)
+
+                        );
+
+
+                    renderProducts(filtered);
+
+                }
+            );
+
+        }
+
+
+        /* ==========================================
+           NEWSLETTER
+        ========================================== */
+
+        const newsletterForm =
+            document.getElementById(
+                "newsletterForm"
+            );
+
+
+        if (newsletterForm) {
+
+            newsletterForm.addEventListener(
+                "submit",
+                event => {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Thanks for subscribing to Brewora!"
+                    );
+
+                    newsletterForm.reset();
+
+                }
+            );
+
+        }
+
+
+        /* ==========================================
+           MOBILE MENU
+        ========================================== */
+
+        const mobileMenu =
+            document.querySelector(
+                ".mobile-menu"
+            );
+
+        const navLinks =
+            document.querySelector(
+                ".nav-links"
+            );
+
+
+        if (mobileMenu) {
+
+            mobileMenu.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.toggle(
+                        "mobile-active"
+                    );
+
+                }
+            );
+
+        }
+
+
+        /* ==========================================
+           INITIALIZE
+        ========================================== */
+
+        renderProducts();
+
+        updateCartUI();
+
+    </script>
+
+</body>
+</html>

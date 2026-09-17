@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Forgot Password</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      background: #f3f4f6;
+
+      overflow-x: hidden;
+    }
+
+    .forgot-box {
+      width: 100%;
+      max-width: 400px;
+
+      background: white;
+
+      padding: 32px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+      animation: showPage 0.4s ease;
+    }
+
+    @keyframes showPage {
+
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    .icon {
+      width: 55px;
+      height: 55px;
+
+      margin: 0 auto 18px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+
+      background: #f1f1f1;
+
+      color: #222;
+
+      font-size: 22px;
+    }
+
+    h2 {
+      text-align: center;
+
+      color: #222;
+
+      font-size: 25px;
+
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+
+      color: #777;
+
+      font-size: 13px;
+
+      line-height: 1.5;
+
+      margin-bottom: 25px;
+    }
+
+    /* Input */
+
+    label {
+      display: block;
+
+      color: #444;
+
+      font-size: 14px;
+
+      margin-bottom: 7px;
+    }
+
+    input {
+      width: 100%;
+
+      height: 45px;
+
+      padding: 0 12px;
+
+      border: 1px solid #d6d6d6;
+
+      border-radius: 6px;
+
+      outline: none;
+
+      font-size: 14px;
+
+      transition: 0.2s;
+    }
+
+    input:focus {
+      border-color: #222;
+
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Button */
+
+    #find-button,
+    #reset-button {
+      width: 100%;
+
+      height: 45px;
+
+      margin-top: 18px;
+
+      border: none;
+
+      border-radius: 6px;
+
+      background: #222;
+
+      color: white;
+
+      font-size: 15px;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    #find-button:hover,
+    #reset-button:hover {
+      background: #3b3b3b;
+    }
+
+    #find-button:active,
+    #reset-button:active {
+      transform: scale(0.98);
+    }
+
+    /* Reset section */
+
+    #reset-section {
+      display: none;
+
+      margin-top: 20px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid #eee;
+    }
+
+    .field {
+      margin-bottom: 15px;
+    }
+
+    .password-box {
+      position: relative;
+    }
+
+    .password-box input {
+      padding-right: 45px;
+    }
+
+    .show-password {
+      position: absolute;
+
+      right: 12px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      border: none;
+
+      background: transparent;
+
+      color: #777;
+
+      cursor: pointer;
+    }
+
+    .show-password:hover {
+      color: #222;
+    }
+
+    /* Message */
+
+    #message {
+      min-height: 18px;
+
+      margin-top: 12px;
+
+      text-align: center;
+
+      font-size: 13px;
+    }
+
+    /* Back */
+
+    .back-login {
+      text-align: center;
+
+      margin-top: 22px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid #eee;
+    }
+
+    .back-login a {
+      color: #222;
+
+      font-size: 13px;
+
+      font-weight: bold;
+
+      text-decoration: none;
+    }
+
+    .back-login a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 450px) {
+
+      .forgot-box {
+        padding: 25px 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <div class="forgot-box">
+
+
+    <div class="icon">
+      <i class="fa-solid fa-lock"></i>
+    </div>
+
+
+    <h2>
+      Forgot Password?
+    </h2>
+
+
+    <p class="subtitle">
+      Enter your email and we'll help you reset your password.
+    </p>
+
+
+    <!-- Find account -->
+
+    <form id="find-form">
+
+      <label for="email">
+        Email
+      </label>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Write your email"
+        autocomplete="email"
+        required
+      >
+
+      <button
+        type="submit"
+        id="find-button"
+      >
+        Find Account
+      </button>
+
+    </form>
+
+
+    <!-- Reset password -->
+
+    <div id="reset-section">
+
+      <div class="field">
+
+        <label for="new-password">
+          New Password
+        </label>
+
+        <div class="password-box">
+
+          <input
+            type="password"
+            id="new-password"
+            placeholder="Create a new password"
+            minlength="6"
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            data-target="new-password"
+          >
+            <i class="fa-regular fa-eye"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="field">
+
+        <label for="confirm-password">
+          Confirm Password
+        </label>
+
+        <div class="password-box">
+
+          <input
+            type="password"
+            id="confirm-password"
+            placeholder="Repeat your password"
+            minlength="6"
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            data-target="confirm-password"
+          >
+            <i class="fa-regular fa-eye"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="button"
+        id="reset-button"
+      >
+        Reset Password
+      </button>
+
+    </div>
+
+
+    <div id="message"></div>
+
+
+    <div class="back-login">
+
+      <a href="login.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back to Login
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+    const findForm =
+      document.getElementById("find-form");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const findButton =
+      document.getElementById("find-button");
+
+    const resetSection =
+      document.getElementById("reset-section");
+
+    const newPassword =
+      document.getElementById("new-password");
+
+    const confirmPassword =
+      document.getElementById("confirm-password");
+
+    const resetButton =
+      document.getElementById("reset-button");
+
+    const message =
+      document.getElementById("message");
+
+
+    let foundUser = null;
+
+
+    /*
+      Find account
+    */
+
+    findForm.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+
+      const email =
+        emailInput.value.trim().toLowerCase();
+
+
+      const users =
+        JSON.parse(
+          localStorage.getItem("users")
+        ) || [];
+
+
+      foundUser =
+        users.find(function(user) {
+
+          return user.email === email;
+
+        });
+
+
+      if (!foundUser) {
+
+        message.textContent =
+          "No account was found with this email.";
+
+        message.style.color =
+          "#d33";
+
+        resetSection.style.display =
+          "none";
+
+        return;
+
+      }
+
+
+      message.textContent =
+        "Account found. Create a new password.";
+
+      message.style.color =
+        "green";
+
+
+      resetSection.style.display =
+        "block";
+
+
+      findButton.disabled =
+        true;
+
+    });
+
+
+    /*
+      Show / Hide password
+    */
+
+    const passwordButtons =
+      document.querySelectorAll(".show-password");
+
+
+    passwordButtons.forEach(function(button) {
+
+      button.addEventListener("click", function() {
+
+        const target =
+          document.getElementById(
+            button.dataset.target
+          );
+
+        const icon =
+          button.querySelector("i");
+
+
+        if (target.type === "password") {
+
+          target.type = "text";
+
+          icon.classList.remove("fa-eye");
+
+          icon.classList.add("fa-eye-slash");
+
+        }
+
+        else {
+
+          target.type = "password";
+
+          icon.classList.remove("fa-eye-slash");
+
+          icon.classList.add("fa-eye");
+
+        }
+
+      });
+
+    });
+
+
+    /*
+      Reset password
+    */
+
+    resetButton.addEventListener("click", function() {
+
+      const password =
+        newPassword.value;
+
+      const confirmPasswordValue =
+        confirmPassword.value;
+
+
+      if (!foundUser) {
+
+        return;
+
+      }
+
+
+      if (password.length < 6) {
+
+        message.textContent =
+          "Password must be at least 6 characters.";
+
+        message.style.color =
+          "#d33";
+
+        return;
+
+      }
+
+
+      if (password !== confirmPasswordValue) {
+
+        message.textContent =
+          "Passwords do not match.";
+
+        message.style.color =
+          "#d33";
+
+        return;
+
+      }
+
+
+      /*
+        Get users
+      */
+
+      const users =
+        JSON.parse(
+          localStorage.getItem("users")
+        ) || [];
+
+
+      /*
+        Find user
+      */
+
+      const userIndex =
+        users.findIndex(function(user) {
+
+          return user.email === foundUser.email;
+
+        });
+
+
+      if (userIndex === -1) {
+
+        message.textContent =
+          "Something went wrong.";
+
+        message.style.color =
+          "#d33";
+
+        return;
+
+      }
+
+
+      /*
+        Update password
+      */
+
+      users[userIndex].password =
+        password;
+
+
+      /*
+        Save changes
+      */
+
+      localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+      );
+
+
+      message.textContent =
+        "Password changed successfully!";
+
+      message.style.color =
+        "green";
+
+
+      resetButton.disabled =
+        true;
+
+
+      /*
+        Go back to login
+      */
+
+      setTimeout(function() {
+
+        window.location.href =
+          "login.html";
+
+      }, 1000);
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>

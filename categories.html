@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Browse Brewora coffee by category - whole beans, ground coffee, flavored blends, and espresso.">
+
+    <title>Brewora | Categories</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            color: #24150d;
+            background: #fffdf9;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            height: 82px;
+            background: #24150d;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #e8e1dc;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #d19b54;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 19px;
+        }
+
+        .nav-icon {
+            color: white;
+            background: transparent;
+            border: 0;
+            font-size: 17px;
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            color: #d19b54;
+        }
+
+        .cart-button span {
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            background: #d19b54;
+            color: #24150d;
+            font-size: 9px;
+            border-radius: 50%;
+            top: -9px;
+            right: -10px;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+        }
+
+        .mobile-menu {
+            display: none;
+            border: 0;
+            background: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        @media (max-width: 860px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 82px;
+                left: 0;
+                right: 0;
+                background: #24150d;
+                padding: 22px 5%;
+                gap: 18px;
+                z-index: 999;
+            }
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .site-footer {
+            background: #1b100a;
+            color: white;
+            padding: 28px 7%;
+        }
+
+        .footer-inner {
+            max-width: 1180px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .site-footer p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 11px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 11px;
+        }
+
+        .footer-links a:hover {
+            color: #d19b54;
+        }
+
+
+        /* =====================================================
+           PAGE HERO
+        ===================================================== */
+
+        .page-hero {
+            min-height: 300px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(36, 21, 13, 0.94),
+                    rgba(36, 21, 13, 0.78)
+                ),
+                url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1800&q=85")
+                center / cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        .hero-inner {
+            max-width: 700px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 18px;
+        }
+
+        .breadcrumb a:hover {
+            color: #d19b54;
+        }
+
+        .hero-label {
+            color: #d19b54;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 46px;
+            margin-bottom: 14px;
+        }
+
+        .page-hero p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           CATEGORIES
+        ===================================================== */
+
+        .categories-section {
+            padding: 80px 0 100px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .category-card {
+            height: 340px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+        }
+
+        .category-image {
+            position: absolute;
+            inset: 0;
+            background-position: center;
+            background-size: cover;
+            transition: .5s;
+        }
+
+        .category-card:hover .category-image {
+            transform: scale(1.07);
+        }
+
+        .category-1 {
+            background-image: url("https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .category-2 {
+            background-image: url("https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .category-3 {
+            background-image: url("https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .category-4 {
+            background-image: url("https://images.unsplash.com/photo-1592663527359-cf6642f54cff?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .category-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent 30%,
+                rgba(20, 10, 5, .88)
+            );
+        }
+
+        .category-content {
+            position: absolute;
+            bottom: 26px;
+            left: 26px;
+            right: 26px;
+            z-index: 2;
+            color: white;
+        }
+
+        .category-content span {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .category-content p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 8px 0 14px;
+        }
+
+        .category-content .browse-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #d19b54;
+        }
+
+        .category-content .browse-link i {
+            transition: .3s;
+        }
+
+        .category-card:hover .browse-link i {
+            transform: translateX(4px);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .page-hero h1 {
+                font-size: 34px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-card {
+                height: 260px;
+            }
+
+            .categories-section {
+                padding: 55px 0 70px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    <header class="navbar">
+
+        <div class="container nav-container">
+
+            <a href="main.html" class="logo">
+                Brewora
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="main.html#home">Home</a>
+
+                <a href="products.html">Shop</a>
+
+                <a href="categories.html" class="active">Categories</a>
+
+                <a href="about.html">About</a>
+
+                <a href="contact.html">Contact</a>
+
+            </nav>
+
+            <div class="nav-actions">
+
+                <a href="login.html" class="nav-icon">
+                    <i class="fa-regular fa-user"></i>
+                </a>
+
+                <a href="cart.html" class="nav-icon cart-button">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span id="cartCount">0</span>
+                </a>
+
+                <button class="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         PAGE HERO
+    ===================================================== -->
+
+    <section class="page-hero">
+
+        <div class="hero-inner">
+
+            <div class="breadcrumb">
+                <a href="main.html">Home</a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <span>Categories</span>
+            </div>
+
+            <span class="hero-label">Shop By Category</span>
+
+            <h1>Find Your Perfect Coffee</h1>
+
+            <p>Explore our carefully selected coffee collection, organized the way you shop.</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CATEGORIES GRID
+    ===================================================== -->
+
+    <section class="categories-section">
+
+        <div class="container category-grid">
+
+            <a href="products.html?category=Coffee%20Beans" class="category-card">
+
+                <div class="category-image category-1"></div>
+
+                <div class="category-content">
+                    <span>Coffee Beans</span>
+                    <p>Whole beans, roasted in small batches for maximum freshness.</p>
+                    <div class="browse-link">
+                        Browse Collection
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="products.html?category=Ground%20Coffee" class="category-card">
+
+                <div class="category-image category-2"></div>
+
+                <div class="category-content">
+                    <span>Ground Coffee</span>
+                    <p>Ready to brew, perfectly ground for drip, pour-over, or French press.</p>
+                    <div class="browse-link">
+                        Browse Collection
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="products.html?category=Espresso" class="category-card">
+
+                <div class="category-image category-4"></div>
+
+                <div class="category-content">
+                    <span>Espresso</span>
+                    <p>Bold, rich blends built for espresso machines and moka pots.</p>
+                    <div class="browse-link">
+                        Browse Collection
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="products.html?category=Flavored%20Coffee" class="category-card">
+
+                <div class="category-image category-3"></div>
+
+                <div class="category-content">
+                    <span>Flavored Coffee</span>
+                    <p>Naturally infused blends for a sweeter, more aromatic cup.</p>
+                    <div class="browse-link">
+                        Browse Collection
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <p>© 2026 Brewora Coffee. All rights reserved.</p>
+
+            <div class="footer-links">
+
+                <a href="#">Privacy Policy</a>
+
+                <a href="#">Terms</a>
+
+                <a href="contact.html">Contact</a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        /* =====================================================
+           CART COUNT
+        ===================================================== */
+
+        const cartCount =
+            document.getElementById("cartCount");
+
+        const cart =
+            JSON.parse(
+                localStorage.getItem("breworaCart")
+            ) || [];
+
+        const count =
+            cart.reduce(
+                (total, item) => total + item.quantity,
+                0
+            );
+
+        cartCount.textContent = count;
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const mobileMenu =
+            document.querySelector(".mobile-menu");
+
+        const navLinks =
+            document.querySelector(".nav-links");
+
+        if (mobileMenu && navLinks) {
+
+            mobileMenu.addEventListener("click", () => {
+
+                navLinks.classList.toggle("mobile-active");
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>

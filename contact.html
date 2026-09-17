@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Contact Brewora Coffee. Get in touch with our team for orders, support, partnerships and coffee inquiries."
+    >
+
+    <title>Contact Us | Brewora Coffee</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================================
+           CONTACT PAGE
+        ========================================= */
+
+        :root {
+            --brown: #24150d;
+            --brown-light: #3a2418;
+            --gold: #d19b54;
+            --gold-dark: #b58a52;
+            --cream: #fffdf9;
+            --cream-dark: #f7f1e8;
+            --text: #24150d;
+            --muted: #766b63;
+            --border: #eadfd2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font: inherit;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           NAVBAR
+        ========================================= */
+
+        .contact-nav {
+            height: 82px;
+            background: var(--brown);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 8px 30px rgba(36, 21, 13, 0.12);
+        }
+
+        .contact-logo {
+            color: var(--cream);
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-logo span {
+            color: var(--gold);
+        }
+
+        .contact-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            list-style: none;
+        }
+
+        .contact-nav-links a {
+            color: #fffdf9;
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.25s ease;
+        }
+
+        .contact-nav-links a:hover,
+        .contact-nav-links a.active {
+            color: var(--gold);
+        }
+
+        .contact-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--cream);
+            display: grid;
+            place-items: center;
+            position: relative;
+            transition: 0.25s ease;
+        }
+
+        .contact-icon:hover {
+            background: rgba(209, 155, 84, 0.15);
+            color: var(--gold);
+        }
+
+        .contact-cart-count {
+            position: absolute;
+            top: -3px;
+            right: -4px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--brown);
+            display: grid;
+            place-items: center;
+            font-size: 9px;
+            font-weight: 700;
+        }
+
+        .contact-menu {
+            display: none;
+            color: var(--cream);
+            background: transparent;
+            font-size: 22px;
+        }
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .contact-hero {
+            min-height: 390px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(36, 21, 13, 0.96),
+                    rgba(36, 21, 13, 0.82)
+                ),
+                url("https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=85")
+                center / cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .contact-hero h1 {
+            color: var(--white);
+            font-family: "Playfair Display", serif;
+            font-size: clamp(42px, 6vw, 68px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .contact-hero h1 span {
+            color: var(--gold);
+        }
+
+        .contact-hero p {
+            max-width: 620px;
+            margin: auto;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 16px;
+        }
+
+        /* =========================================
+           CONTACT INFO CARDS
+        ========================================= */
+
+        .contact-info-section {
+            padding: 70px 7% 35px;
+        }
+
+        .contact-info-grid {
+            max-width: 1180px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .contact-info-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 30px 25px;
+            text-align: center;
+            border-radius: 16px;
+            transition: 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(36, 21, 13, 0.09);
+            border-color: rgba(209, 155, 84, 0.45);
+        }
+
+        .info-icon {
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #f8efe3;
+            color: var(--gold-dark);
+            display: grid;
+            place-items: center;
+            font-size: 20px;
+        }
+
+        .contact-info-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .contact-info-card a {
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        /* =========================================
+           MAIN CONTACT AREA
+        ========================================= */
+
+        .contact-main {
+            padding: 55px 7% 90px;
+        }
+
+        .contact-layout {
+            max-width: 1180px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .contact-intro {
+            padding-top: 10px;
+        }
+
+        .section-label {
+            color: var(--gold-dark);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .contact-intro h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(34px, 4vw, 48px);
+            line-height: 1.12;
+            margin-bottom: 20px;
+        }
+
+        .contact-intro h2 span {
+            color: var(--gold-dark);
+        }
+
+        .contact-intro > p {
+            color: var(--muted);
+            font-size: 15px;
+            margin-bottom: 30px;
+            max-width: 480px;
+        }
+
+        .contact-perks {
+            display: grid;
+            gap: 18px;
+        }
+
+        .contact-perk {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .perk-icon {
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            background: var(--brown);
+            color: var(--gold);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+        }
+
+        .contact-perk h4 {
+            font-size: 15px;
+            margin-bottom: 3px;
+        }
+
+        .contact-perk p {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .contact-form-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 60px rgba(36, 21, 13, 0.07);
+        }
+
+        .contact-form-box h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin-bottom: 7px;
+        }
+
+        .form-description {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 13px 14px;
+            background: #fffdfa;
+            color: var(--text);
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .form-group textarea {
+            min-height: 145px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(209, 155, 84, 0.11);
+        }
+
+        .submit-button {
+            width: 100%;
+            min-height: 52px;
+            background: var(--brown);
+            color: var(--white);
+            border-radius: 10px;
+            font-weight: 700;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-button:hover {
+            background: var(--gold);
+            color: var(--brown);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           MAP / LOCATION
+        ========================================= */
+
+        .location-section {
+            background: var(--cream-dark);
+            padding: 85px 7%;
+        }
+
+        .location-header {
+            max-width: 1180px;
+            margin: 0 auto 35px;
+            text-align: center;
+        }
+
+        .location-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .location-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .location-box {
+            max-width: 1180px;
+            min-height: 370px;
+            margin: auto;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background:
+                linear-gradient(
+                    rgba(36, 21, 13, 0.12),
+                    rgba(36, 21, 13, 0.12)
+                ),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=85")
+                center / cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .location-card {
+            background: rgba(255, 253, 249, 0.96);
+            width: min(370px, 90%);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(36, 21, 13, 0.18);
+        }
+
+        .location-card i {
+            font-size: 27px;
+            color: var(--gold-dark);
+            margin-bottom: 12px;
+        }
+
+        .location-card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+            margin-bottom: 7px;
+        }
+
+        .location-card p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .directions-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brown);
+            color: var(--white);
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+
+        .directions-button:hover {
+            background: var(--gold);
+            color: var(--brown);
+        }
+
+        /* =========================================
+           FAQ
+        ========================================= */
+
+        .faq-section {
+            padding: 90px 7%;
+        }
+
+        .faq-header {
+            max-width: 650px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .faq-header h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .faq-header p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--white);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            padding: 20px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .faq-question i {
+            color: var(--gold-dark);
+            transition: 0.25s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 22px 20px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 150px;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* =========================================
+           NEWSLETTER
+        ========================================= */
+
+        .contact-newsletter {
+            padding: 0 7% 90px;
+        }
+
+        .newsletter-box {
+            max-width: 1180px;
+            margin: auto;
+            background: var(--brown);
+            border-radius: 20px;
+            padding: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 35px;
+        }
+
+        .newsletter-text h2 {
+            color: var(--white);
+            font-family: "Playfair Display", serif;
+            font-size: 32px;
+            margin-bottom: 7px;
+        }
+
+        .newsletter-text p {
+            color: rgba(255, 255, 255, 0.67);
+            font-size: 13px;
+        }
+
+        .newsletter-form {
+            width: min(440px, 100%);
+            display: flex;
+            background: var(--white);
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .newsletter-form input {
+            min-width: 0;
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 11px 13px;
+            background: transparent;
+            color: var(--text);
+        }
+
+        .newsletter-form button {
+            padding: 11px 18px;
+            border-radius: 7px;
+            background: var(--gold);
+            color: var(--brown);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .contact-footer {
+            background: #1b100a;
+            color: var(--white);
+            padding: 65px 7% 25px;
+        }
+
+        .footer-grid {
+            max-width: 1180px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 45px;
+            padding-bottom: 45px;
+        }
+
+        .footer-brand h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 29px;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand h2 span {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 13px;
+        }
+
+        .footer-column h4 {
+            font-size: 14px;
+            margin-bottom: 17px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-column li,
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.58);
+            font-size: 13px;
+            transition: 0.2s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 9px;
+            margin-top: 20px;
+        }
+
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        .footer-bottom {
+            max-width: 1180px;
+            margin: auto;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 12px;
+        }
+
+        /* =========================================
+           TOAST
+        ========================================= */
+
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--brown);
+            color: var(--white);
+            padding: 14px 20px;
+            border-radius: 9px;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 900px) {
+            .contact-nav {
+                padding: 0 5%;
+            }
+
+            .contact-nav-links {
+                display: none;
+            }
+
+            .contact-menu {
+                display: block;
+            }
+
+            .contact-layout {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .newsletter-form {
+                width: 100%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-nav {
+                height: 72px;
+            }
+
+            .contact-logo {
+                font-size: 24px;
+            }
+
+            .contact-nav-actions .contact-icon:first-child {
+                display: none;
+            }
+
+            .contact-hero {
+                min-height: 330px;
+                padding: 55px 20px;
+            }
+
+            .contact-hero h1 {
+                font-size: 43px;
+            }
+
+            .contact-info-section,
+            .contact-main,
+            .location-section,
+            .faq-section {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .contact-form-box {
+                padding: 24px 18px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .location-box {
+                min-height: 330px;
+            }
+
+            .newsletter-box {
+                padding: 30px 22px;
+            }
+
+            .newsletter-text h2 {
+                font-size: 27px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                background: transparent;
+                padding: 0;
+                gap: 8px;
+            }
+
+            .newsletter-form input {
+                background: var(--white);
+                border-radius: 8px;
+                padding: 13px;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+
+            .contact-newsletter {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .toast {
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================================
+         NAVBAR
+    ========================================= -->
+
+    <nav class="contact-nav">
+
+        <a href="main.html" class="contact-logo">
+            Brew<span>ora</span>
+        </a>
+
+        <ul class="contact-nav-links">
+            <li>
+                <a href="main.html">Home</a>
+            </li>
+
+            <li>
+                <a href="products.html">Shop</a>
+            </li>
+
+            <li>
+                <a href="about.html">About</a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="active">Contact</a>
+            </li>
+        </ul>
+
+        <div class="contact-nav-actions">
+
+            <a
+                href="main.html#search"
+                class="contact-icon"
+                aria-label="Search"
+            >
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+
+            <a
+                href="#"
+                class="contact-icon"
+                aria-label="Account"
+            >
+                <i class="fa-regular fa-user"></i>
+            </a>
+
+            <a
+                href="cart.html"
+                class="contact-icon"
+                aria-label="Cart"
+            >
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span class="contact-cart-count" id="cartCount">0</span>
+            </a>
+
+            <button
+                class="contact-menu"
+                id="menuButton"
+                aria-label="Open menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <header class="contact-hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                Get In Touch
+            </div>
+
+            <h1>
+                Let's Talk <span>Coffee.</span>
+            </h1>
+
+            <p>
+                Have a question about our coffee, your order, or anything
+                Brewora? Our team is always happy to hear from you.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         CONTACT INFO
+    ========================================= -->
+
+    <section class="contact-info-section">
+
+        <div class="contact-info-grid">
+
+            <div class="contact-info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <h3>Visit Us</h3>
+
+                <p>
+                    King Fahd Road<br>
+                    Riyadh, Saudi Arabia
+                </p>
+
+            </div>
+
+
+            <div class="contact-info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <h3>Email Us</h3>
+
+                <p>
+                    <a href="mailto:hello@brewora.com">
+                        hello@brewora.com
+                    </a>
+                </p>
+
+            </div>
+
+
+            <div class="contact-info-card">
+
+                <div class="info-icon">
+                    <i class="fa-solid fa-phone"></i>
+                </div>
+
+                <h3>Call Us</h3>
+
+                <p>
+                    <a href="tel:+966500000000">
+                        +966 50 000 0000
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         CONTACT FORM
+    ========================================= -->
+
+    <section class="contact-main">
+
+        <div class="contact-layout">
+
+            <div class="contact-intro">
+
+                <div class="section-label">
+                    Contact Brewora
+                </div>
+
+                <h2>
+                    We would love to
+                    <span>hear from you.</span>
+                </h2>
+
+                <p>
+                    Whether you're looking for the perfect coffee beans,
+                    need help with an order, or want to work with Brewora,
+                    send us a message and our team will get back to you.
+                </p>
+
+
+                <div class="contact-perks">
+
+                    <div class="contact-perk">
+
+                        <div class="perk-icon">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+
+                        <div>
+                            <h4>Friendly Support</h4>
+                            <p>
+                                Our team is ready to help with your questions.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-perk">
+
+                        <div class="perk-icon">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <h4>Quick Response</h4>
+                            <p>
+                                We usually respond within 24 hours.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-perk">
+
+                        <div class="perk-icon">
+                            <i class="fa-solid fa-mug-hot"></i>
+                        </div>
+
+                        <div>
+                            <h4>Coffee Experts</h4>
+                            <p>
+                                Get advice from people who truly love coffee.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-form-box">
+
+                <h3>Send us a message</h3>
+
+                <p class="form-description">
+                    Fill out the form below and we'll get back to you.
+                </p>
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="+966 5X XXX XXXX"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="subject">
+                                Subject
+                            </label>
+
+                            <select
+                                id="subject"
+                                name="subject"
+                                required
+                            >
+
+                                <option value="">
+                                    Choose a subject
+                                </option>
+
+                                <option value="order">
+                                    Order Support
+                                </option>
+
+                                <option value="coffee">
+                                    Coffee Recommendation
+                                </option>
+
+                                <option value="partnership">
+                                    Partnership
+                                </option>
+
+                                <option value="feedback">
+                                    Feedback
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Your Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Tell us how we can help..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+                        Send Message
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         LOCATION
+    ========================================= -->
+
+    <section class="location-section">
+
+        <div class="location-header">
+
+            <div class="section-label">
+                Find Us
+            </div>
+
+            <h2>
+                Come Say Hello
+            </h2>
+
+            <p>
+                Visit Brewora and enjoy a cup of coffee with us.
+            </p>
+
+        </div>
+
+
+        <div class="location-box">
+
+            <div class="location-card">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <h3>
+                    Brewora Coffee
+                </h3>
+
+                <p>
+                    King Fahd Road, Riyadh<br>
+                    Saudi Arabia
+                </p>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=King+Fahd+Road+Riyadh+Saudi+Arabia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="directions-button"
+                >
+                    Get Directions
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FAQ
+    ========================================= -->
+
+    <section class="faq-section">
+
+        <div class="faq-header">
+
+            <div class="section-label">
+                FAQ
+            </div>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+            <p>
+                Quick answers to some of the questions our customers ask most.
+            </p>
+
+        </div>
+
+
+        <div class="faq-list">
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>
+                        How long does shipping take?
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Standard shipping usually takes 2–5 business days,
+                        depending on your location.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>
+                        Can I change my order after placing it?
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Contact our support team as soon as possible.
+                        We will do our best to update your order before
+                        it is shipped.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>
+                        Do you offer coffee recommendations?
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Absolutely. Tell us what flavors you enjoy and
+                        our coffee team can recommend a blend for you.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>
+                        Can I work with Brewora as a business?
+                    </span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="faq-answer">
+                    <p>
+                        Yes. We welcome wholesale, cafe, office and
+                        partnership inquiries.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         NEWSLETTER
+    ========================================= -->
+
+    <section class="contact-newsletter">
+
+        <div class="newsletter-box">
+
+            <div class="newsletter-text">
+
+                <h2>
+                    Stay in the Brewora Circle
+                </h2>
+
+                <p>
+                    Coffee news, new arrivals and exclusive offers.
+                </p>
+
+            </div>
+
+
+            <form
+                class="newsletter-form"
+                id="newsletterForm"
+            >
+
+                <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Your email address"
+                    required
+                >
+
+                <button type="submit">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="contact-footer">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h2>
+                    Brew<span>ora</span>
+                </h2>
+
+                <p>
+                    Carefully selected coffee made for people who
+                    appreciate every detail of a great cup.
+                </p>
+
+                <div class="footer-socials">
+
+                    <a href="#" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="#" aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#" aria-label="X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="#" aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Explore</h4>
+
+                <ul>
+                    <li>
+                        <a href="main.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="products.html">Shop</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Customer Care</h4>
+
+                <ul>
+                    <li>
+                        <a href="cart.html">My Cart</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Shipping</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Returns</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Privacy Policy</a>
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>Contact</h4>
+
+                <ul>
+
+                    <li>
+                        King Fahd Road
+                    </li>
+
+                    <li>
+                        Riyadh, Saudi Arabia
+                    </li>
+
+                    <li>
+                        <a href="mailto:hello@brewora.com">
+                            hello@brewora.com
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tel:+966500000000">
+                            +966 50 000 0000
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Brewora Coffee. All rights reserved.
+            </p>
+
+            <p>
+                Crafted with passion for coffee.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         TOAST
+    ========================================= -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        Message sent successfully.
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+
+        /* =========================================
+           CART COUNT
+        ========================================= */
+
+        const cartCount = document.getElementById("cartCount");
+
+        let cart = JSON.parse(
+            localStorage.getItem("breworaCart")
+        ) || [];
+
+        function updateCartCount() {
+
+            const count = cart.reduce(
+                (total, item) => total + item.quantity,
+                0
+            );
+
+            cartCount.textContent = count;
+        }
+
+        updateCartCount();
+
+
+        /* =========================================
+           TOAST
+        ========================================= */
+
+        const toast = document.getElementById("toast");
+
+        function showToast(message) {
+
+            toast.textContent = message;
+            toast.classList.add("show");
+
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
+
+        /* =========================================
+           CONTACT FORM
+        ========================================= */
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        contactForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const message =
+                document.getElementById("message").value.trim();
+
+            if (!name || !email || !message) {
+                showToast("Please fill in all required fields.");
+                return;
+            }
+
+            showToast(
+                "Thanks! Your message has been received."
+            );
+
+            contactForm.reset();
+
+        });
+
+
+        /* =========================================
+           FAQ
+        ========================================= */
+
+        const faqItems =
+            document.querySelectorAll(".faq-item");
+
+        faqItems.forEach(item => {
+
+            const question =
+                item.querySelector(".faq-question");
+
+            question.addEventListener("click", () => {
+
+                faqItems.forEach(otherItem => {
+
+                    if (otherItem !== item) {
+                        otherItem.classList.remove("open");
+                    }
+
+                });
+
+                item.classList.toggle("open");
+
+            });
+
+        });
+
+
+        /* =========================================
+           NEWSLETTER
+        ========================================= */
+
+        const newsletterForm =
+            document.getElementById("newsletterForm");
+
+        newsletterForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const email =
+                document.getElementById("newsletterEmail").value.trim();
+
+            if (!email) {
+                showToast("Please enter your email.");
+                return;
+            }
+
+            showToast(
+                "You're now part of the Brewora Circle!"
+            );
+
+            newsletterForm.reset();
+
+        });
+
+
+        /* =========================================
+           MOBILE MENU
+        ========================================= */
+
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const navLinks =
+            document.querySelector(".contact-nav-links");
+
+        menuButton.addEventListener("click", () => {
+
+            const isOpen =
+                navLinks.style.display === "flex";
+
+            if (isOpen) {
+
+                navLinks.style.display = "";
+
+            } else {
+
+                navLinks.style.position = "absolute";
+                navLinks.style.top = "72px";
+                navLinks.style.left = "0";
+                navLinks.style.right = "0";
+                navLinks.style.padding = "22px 5%";
+                navLinks.style.background = "#24150d";
+                navLinks.style.flexDirection = "column";
+                navLinks.style.alignItems = "flex-start";
+                navLinks.style.gap = "20px";
+                navLinks.style.display = "flex";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

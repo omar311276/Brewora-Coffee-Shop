@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Create Account</title>
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 20px;
+
+      background: #f3f4f6;
+
+      overflow-x: hidden;
+    }
+
+    .signup {
+      width: 100%;
+      max-width: 400px;
+
+      background: #fff;
+
+      padding: 32px;
+
+      border-radius: 10px;
+
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+      animation: showPage 0.4s ease;
+    }
+
+    @keyframes showPage {
+
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    .signup h2 {
+      text-align: center;
+
+      color: #222;
+
+      font-size: 26px;
+
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      text-align: center;
+
+      color: #777;
+
+      font-size: 13px;
+
+      margin-bottom: 25px;
+    }
+
+    /* Inputs */
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+
+      color: #444;
+
+      font-size: 14px;
+
+      margin-bottom: 7px;
+    }
+
+    .input-box {
+      position: relative;
+    }
+
+    .input-box input {
+      width: 100%;
+
+      height: 45px;
+
+      padding: 0 12px;
+
+      border: 1px solid #d6d6d6;
+
+      border-radius: 6px;
+
+      outline: none;
+
+      font-size: 14px;
+
+      transition: 0.2s;
+    }
+
+    .input-box input:focus {
+      border-color: #222;
+
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .password-input {
+      padding-right: 45px !important;
+    }
+
+    .show-password {
+      position: absolute;
+
+      right: 12px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      border: none;
+
+      background: transparent;
+
+      color: #777;
+
+      cursor: pointer;
+
+      font-size: 15px;
+    }
+
+    .show-password:hover {
+      color: #222;
+    }
+
+    /* Terms */
+
+    .terms {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 8px;
+
+      margin: 5px 0 20px;
+    }
+
+    .terms input {
+      margin-top: 2px;
+
+      cursor: pointer;
+    }
+
+    .terms label {
+      color: #666;
+
+      font-size: 12px;
+
+      line-height: 1.5;
+    }
+
+    .terms a {
+      color: #222;
+
+      font-weight: bold;
+
+      text-decoration: none;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
+    /* Button */
+
+    #signup-button {
+      width: 100%;
+
+      height: 45px;
+
+      border: none;
+
+      border-radius: 6px;
+
+      background: #222;
+
+      color: white;
+
+      font-size: 15px;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    #signup-button:hover {
+      background: #3b3b3b;
+    }
+
+    #signup-button:active {
+      transform: scale(0.98);
+    }
+
+    #signup-button:disabled {
+      opacity: 0.7;
+
+      cursor: not-allowed;
+    }
+
+    /* Message */
+
+    #message {
+      min-height: 18px;
+
+      margin-top: 12px;
+
+      text-align: center;
+
+      font-size: 13px;
+    }
+
+    /* Login */
+
+    .login-link {
+      text-align: center;
+
+      margin-top: 22px;
+
+      padding-top: 20px;
+
+      border-top: 1px solid #eee;
+
+      color: #666;
+
+      font-size: 13px;
+    }
+
+    .login-link a {
+      color: #222;
+
+      font-weight: bold;
+
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile */
+
+    @media (max-width: 450px) {
+
+      .signup {
+        padding: 25px 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <div class="signup">
+
+    <h2>
+      Create Account
+    </h2>
+
+    <p class="subtitle">
+      Create your account to get started
+    </p>
+
+
+    <form id="signup-form">
+
+
+      <!-- Name -->
+
+      <div class="field">
+
+        <label for="name">
+          Full Name
+        </label>
+
+        <div class="input-box">
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Write your name"
+            autocomplete="name"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- Email -->
+
+      <div class="field">
+
+        <label for="email">
+          Email
+        </label>
+
+        <div class="input-box">
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Write your email"
+            autocomplete="email"
+            required
+          >
+
+        </div>
+
+      </div>
+
+
+      <!-- Password -->
+
+      <div class="field">
+
+        <label for="password">
+          Password
+        </label>
+
+        <div class="input-box">
+
+          <input
+            type="password"
+            id="password"
+            class="password-input"
+            placeholder="Create a password"
+            minlength="6"
+            autocomplete="new-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            data-target="password"
+          >
+            <i class="fa-regular fa-eye"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Confirm Password -->
+
+      <div class="field">
+
+        <label for="confirm-password">
+          Confirm Password
+        </label>
+
+        <div class="input-box">
+
+          <input
+            type="password"
+            id="confirm-password"
+            class="password-input"
+            placeholder="Repeat your password"
+            minlength="6"
+            autocomplete="new-password"
+            required
+          >
+
+          <button
+            type="button"
+            class="show-password"
+            data-target="confirm-password"
+          >
+            <i class="fa-regular fa-eye"></i>
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- Terms -->
+
+      <div class="terms">
+
+        <input
+          type="checkbox"
+          id="terms"
+          required
+        >
+
+        <label for="terms">
+
+          I agree to the
+          <a href="#">
+            Terms & Conditions
+          </a>
+
+        </label>
+
+      </div>
+
+
+      <!-- Button -->
+
+      <button
+        type="submit"
+        id="signup-button"
+      >
+
+        <span id="button-text">
+          Create Account
+        </span>
+
+        <i
+          id="loading"
+          class="fa-solid fa-spinner fa-spin"
+          style="display: none;"
+        ></i>
+
+      </button>
+
+
+      <div id="message"></div>
+
+
+    </form>
+
+
+    <!-- Login -->
+
+    <div class="login-link">
+
+      Already have an account?
+
+      <a href="login.html">
+        Login
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+
+    const form =
+      document.getElementById("signup-form");
+
+    const nameInput =
+      document.getElementById("name");
+
+    const emailInput =
+      document.getElementById("email");
+
+    const passwordInput =
+      document.getElementById("password");
+
+    const confirmPasswordInput =
+      document.getElementById("confirm-password");
+
+    const terms =
+      document.getElementById("terms");
+
+    const message =
+      document.getElementById("message");
+
+    const signupButton =
+      document.getElementById("signup-button");
+
+    const buttonText =
+      document.getElementById("button-text");
+
+    const loading =
+      document.getElementById("loading");
+
+
+    /*
+      Show / Hide Password
+    */
+
+    const passwordButtons =
+      document.querySelectorAll(".show-password");
+
+
+    passwordButtons.forEach(function (button) {
+
+      button.addEventListener("click", function () {
+
+        const targetId =
+          button.dataset.target;
+
+        const input =
+          document.getElementById(targetId);
+
+        const icon =
+          button.querySelector("i");
+
+
+        if (input.type === "password") {
+
+          input.type = "text";
+
+          icon.classList.remove("fa-eye");
+
+          icon.classList.add("fa-eye-slash");
+
+        }
+
+        else {
+
+          input.type = "password";
+
+          icon.classList.remove("fa-eye-slash");
+
+          icon.classList.add("fa-eye");
+
+        }
+
+      });
+
+    });
+
+
+    /*
+      Create Account
+    */
+
+    form.addEventListener("submit", function (event) {
+
+      event.preventDefault();
+
+
+      const name =
+        nameInput.value.trim();
+
+      const email =
+        emailInput.value.trim().toLowerCase();
+
+      const password =
+        passwordInput.value;
+
+      const confirmPassword =
+        confirmPasswordInput.value;
+
+
+      message.textContent = "";
+
+
+      /* Name */
+
+      if (name.length < 2) {
+
+        message.textContent =
+          "Please enter your name.";
+
+        message.style.color = "#d33";
+
+        nameInput.focus();
+
+        return;
+
+      }
+
+
+      /* Email */
+
+      if (!emailInput.checkValidity()) {
+
+        message.textContent =
+          "Please enter a valid email.";
+
+        message.style.color = "#d33";
+
+        emailInput.focus();
+
+        return;
+
+      }
+
+
+      /* Password */
+
+      if (password.length < 6) {
+
+        message.textContent =
+          "Password must be at least 6 characters.";
+
+        message.style.color = "#d33";
+
+        passwordInput.focus();
+
+        return;
+
+      }
+
+
+      /* Confirm password */
+
+      if (password !== confirmPassword) {
+
+        message.textContent =
+          "Passwords do not match.";
+
+        message.style.color = "#d33";
+
+        confirmPasswordInput.focus();
+
+        return;
+
+      }
+
+
+      /* Terms */
+
+      if (!terms.checked) {
+
+        message.textContent =
+          "Please accept the Terms & Conditions.";
+
+        message.style.color = "#d33";
+
+        return;
+
+      }
+
+
+      /*
+        Get existing users
+      */
+
+      let users =
+        JSON.parse(
+          localStorage.getItem("users")
+        ) || [];
+
+
+      /*
+        Check if email already exists
+      */
+
+      const userExists =
+        users.some(function (user) {
+
+          return user.email === email;
+
+        });
+
+
+      if (userExists) {
+
+        message.textContent =
+          "This email is already registered.";
+
+        message.style.color = "#d33";
+
+        emailInput.focus();
+
+        return;
+
+      }
+
+
+      /*
+        Loading
+      */
+
+      signupButton.disabled = true;
+
+      buttonText.textContent =
+        "Creating account...";
+
+      loading.style.display =
+        "inline-block";
+
+
+      /*
+        Create user
+      */
+
+      const newUser = {
+
+        id: Date.now(),
+
+        name: name,
+
+        email: email,
+
+        password: password
+
+      };
+
+
+      /*
+        Add user to localStorage
+      */
+
+      users.push(newUser);
+
+
+      localStorage.setItem(
+        "users",
+        JSON.stringify(users)
+      );
+
+
+      /*
+        Save current logged-in user
+      */
+
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          id: newUser.id,
+          name: newUser.name,
+          email: newUser.email
+        })
+      );
+
+
+      /*
+        Success
+      */
+
+      setTimeout(function () {
+
+        message.textContent =
+          "Account created successfully!";
+
+        message.style.color =
+          "green";
+
+
+        buttonText.textContent =
+          "Success";
+
+        loading.style.display =
+          "none";
+
+
+        /*
+          Go to main.html
+        */
+
+        setTimeout(function () {
+
+          window.location.href =
+            "main.html";
+
+        }, 600);
+
+
+      }, 700);
+
+
+    });
+
+  </script>
+
+
+</body>
+
+</html>
